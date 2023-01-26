@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        parseArrayList(readFile("filename.txt"));
+        parseArrayList(readFile("filename.txt"));
 //        System.out.println( getline(readFile("filename.txt"),1));
         int [] bbb = {15,4,21,7,19,31,1};
         BubbleSort(bbb);
@@ -39,7 +39,7 @@ public class Main {
 
                 String[] a = sts.split(",");
                 System.out.println("Студент " + a[0] + " получил " + a[1] + " по предмету " + a[2]);
-                writerFile("Студент " + a[0] + " получил " + a[1] + " по предмету " + a[2], "WriteTest"); // Производим
+                writerFile("Студент " + a[0] + " получил " + a[1] + " по предмету " + a[2], "WriteTest.txt"); // Производим
                                                                                             // запись в нужный нам файл
             }
         } catch (Exception exception) {
