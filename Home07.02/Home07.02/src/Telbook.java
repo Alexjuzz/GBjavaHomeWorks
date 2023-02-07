@@ -22,7 +22,6 @@ public class Telbook {
         try {
             String value =number.substring(1).replace("-","").replace("(","").replace(")","").replace("_","");
 
-            System.out.println(value);
             Long numb = Long.parseLong(value);
 
 
