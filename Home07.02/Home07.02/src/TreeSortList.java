@@ -13,7 +13,7 @@ public class TreeSortList {
         });
     }
 
-    void sortTree(List<String> list){
+    TreeMap<Integer, List<String>> sortTree(List<String> list){
         int count = 0;
         for (String st: list
              ) {
@@ -24,16 +24,15 @@ public class TreeSortList {
                     count++;
                 }
             }
-            treeMap.computeIfAbsent(count,k -> new LinkedList<>()).add(st);
-
+            treeMap.computeIfAbsent(count,k -> new ArrayList<>()).add(st);
         }
-        System.out.println(treeMap.toString());
+        return this.treeMap;
     }
     List<String> createList(String st){
         String s = st.replace(".","");
         String[] rs= s.split(",");
 
-        List<String> strings = new LinkedList<>();
+        List<String> strings = new ArrayList<>();
         for (String sts: rs
              ) {
             String a = sts.trim();
