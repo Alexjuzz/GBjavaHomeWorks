@@ -8,7 +8,9 @@ public class Main {
         tb.addtobook("petya",512662);
         tb.addtobook("petz",+84214);
         tb.addtobook("kolya","+7941-244-21-11");
-
+        System.out.println(tb);
+        tb.removeTelInBook("Ivan",5126);
+        tb.removeTelInBook("petz",+84214);
         System.out.println(tb);
     }
 

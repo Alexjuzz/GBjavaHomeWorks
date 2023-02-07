@@ -35,6 +35,21 @@ public class Telbook {
             System.out.println("Введен не корректный номер");
         }
     }
+    void removeTelInBook(String name,Integer number){
+    if(number != null){
+
+        Long num = (long) number;
+        if (this.tb.containsKey(name)){
+            tb.get(name).remove(num);
+            }
+        }else {
+        System.out.println("Не коррекртный номер");
+    }
+        if(tb.get(name).isEmpty()){
+            tb.remove(name);
+        }
+    }
+
 
 
     @Override
