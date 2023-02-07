@@ -1,16 +1,42 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class Linker_list {
+    int capacity;
+    int [] ints;
+    String [] strings;
+    char [] chars;
+    String type;
 
-     List<String> reverse_link_list(List<String> list) {
-        List<String> stringList = new LinkedList<>();
-        for (int i = list.size()-1; i >= 0  ; i--) {
-            stringList.add(list.get(i));
-        }
-        return stringList;
+    Linker_list(String type,int capacity){
+        this.capacity = capacity;
+            switch (type){
+                case ("String") :
+                    this.strings = new String[capacity];
+                    break;
+                case ("int") :
+                     this.ints = new int[capacity];
+                    break;
+                case ("char") :
+                    this.chars = new char[capacity];
+                    break;
+
+                default:
+                    System.out.println("Неверный тип обьекта");
+            }
     }
+
+    String [] add(){
+
+
+    }
+
+//     List<String> reverse_link_list(List<String> list) {
+//        List<String> stringList = new LinkedList<>();
+//        for (int i = list.size()-1; i >= 0  ; i--) {
+//            stringList.add(list.get(i));
+//        }
+//        return stringList;
+//    }
      void enqueue(List<String> list,String str){
         if (list.isEmpty()){
             System.out.println("Пусто");
