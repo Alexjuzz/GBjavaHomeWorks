@@ -2,6 +2,7 @@ import java.util.*;
 
 public class FindLap {
     GeneratorLap lap = new GeneratorLap();
+
     List<Laptop> findval(List<Laptop> list) {
         Object[] array = new Object[5];
         List<Laptop> lst = new ArrayList<>(list);

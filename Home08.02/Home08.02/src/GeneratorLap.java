@@ -8,11 +8,11 @@ public class GeneratorLap {
     List<String> color = new ArrayList<>();
     List<String> OS = new ArrayList<>();
     List<Integer> ram = new ArrayList<>();
-    List<Integer> memory= new ArrayList<>();
+    List<Integer> memory = new ArrayList<>();
 
     List<Laptop> laptops;
 
-    GeneratorLap(){
+    GeneratorLap() {
         names.add("ASUS");
         names.add("ACER");
         names.add("HQ");
@@ -46,28 +46,29 @@ public class GeneratorLap {
         memory.add(8112);
         memory.add(16224);
     }
-    Laptop addOnesToGenerator(String name,String color,String OS,int ram,int memory){
-        return new Laptop(name,color,OS,ram,memory);
+
+    Laptop addOnesToGenerator(String name, String color, String OS, int ram, int memory) {
+        return new Laptop(name, color, OS, ram, memory);
     }
 
-    List<Laptop> addSeveralLap(int countLaptops){
+    List<Laptop> addSeveralLap(int countLaptops) {
         this.laptops = new ArrayList<Laptop>();
         for (int i = 0; i < countLaptops; i++) {
-            laptops.add(addOnesToGenerator(randomString(this.names),randomString(color),randomString(OS),randomValues(ram),randomValues(memory)));
+            laptops.add(addOnesToGenerator(randomString(this.names), randomString(color), randomString(OS), randomValues(ram), randomValues(memory)));
         }
 
 
-        return  laptops;
+        return laptops;
     }
 
-    String randomString(List<String> list){
+    String randomString(List<String> list) {
         Random random = new Random();
-        return list.get(random.nextInt(list.size()-1));
+        return list.get(random.nextInt(list.size() - 1));
 
     }
 
-    int randomValues(List<Integer> list){
+    int randomValues(List<Integer> list) {
         Random random = new Random();
-        return list.get(random.nextInt(list.size()-1));
+        return list.get(random.nextInt(list.size() - 1));
     }
 }

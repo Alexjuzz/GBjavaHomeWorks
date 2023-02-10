@@ -2,17 +2,17 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-      GeneratorLap generatorLap = new GeneratorLap();
-      List<Laptop> laptopList = generatorLap.addSeveralLap(6);
-      FindLap findLap = new FindLap();
-        for (Laptop lp: laptopList
+        GeneratorLap generatorLap = new GeneratorLap();
+        List<Laptop> laptopList = generatorLap.addSeveralLap(6);
+        FindLap findLap = new FindLap();
+        for (Laptop lp : laptopList
         ) {
             System.out.println(lp);
         }
-      List<Laptop> ll = findLap.findval(laptopList);
+        List<Laptop> ll = findLap.findval(laptopList);
         System.out.println(ll.size());
-        for (Laptop lp: ll
-             ) {
+        for (Laptop lp : ll
+        ) {
             System.out.println(lp);
         }
     }
