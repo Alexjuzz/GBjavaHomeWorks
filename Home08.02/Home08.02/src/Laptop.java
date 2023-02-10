@@ -1,21 +1,43 @@
 public class Laptop {
     String name;
     String color;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setOS(String OS) {
+        this.OS = OS;
+    }
+
+    public void setRam(int ram) {
+        this.ram = ram;
+    }
+
+    public void setMemory(int memory) {
+        this.memory = memory;
+    }
+
     String OS;
     int ram;
     int memory;
-    Laptop(String name,String color,String OS,int ram,int memory){
-        this.name = name;
-        this.color = color;
-        this.ram = ram;
-        this.memory = memory;
-        this.OS = OS;
+
+    Laptop(String name, String color, String OS, int ram, int memory) {
+        setName(name);
+        setColor(color);
+        setRam(ram);
+        setMemory(memory);
+        setOS(OS);
 
     }
 
     @Override
     public String toString() {
-        return String.format("Название: %s - Цвет: %s - Операционная система: %s - Оперативная память: %s - Жесткий диск: %d\n", this.name,this.color,this.OS,this.ram,this.memory );
+        return String.format("Название: %s - Цвет: %s - Операционная система: %s - Оперативная память: %s - Жесткий диск: %d\n", this.name, this.color, this.OS, this.ram, this.memory);
     }
 }
 /*
