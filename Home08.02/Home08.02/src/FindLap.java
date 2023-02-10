@@ -1,28 +1,7 @@
 import java.util.*;
 
 public class FindLap {
-
     GeneratorLap lap = new GeneratorLap();
-
-//    List<Laptop> findrequest(List<Integer> findlist, List<Laptop> listlaptop) {
-//        List<Laptop> lsttop = new ArrayList<>();
-//        String name = findlist.get(0) != null ? lap.names.get(findlist.get(0)) : "";
-//        String color = findlist.get(1) != null ? lap.color.get(findlist.get(1)) : "";
-//        String os = findlist.get(2) != null ? lap.OS.get(findlist.get(2)) : "";
-//
-//        int ram = findlist.get(3) != null ? lap.ram.get(findlist.get(3)) : 0;
-//        int hdd = findlist.get(4) != null ? lap.memory.get(findlist.get(4)) : 0;
-//
-//        for (Laptop lp : listlaptop
-//        ) {
-//
-//
-//        }
-//
-//
-//        return lsttop;
-//    }
-
     List<Laptop> findval(List<Laptop> list) {
         Object[] array = new Object[5];
         List<Laptop> lst = new ArrayList<>(list);
@@ -141,5 +120,4 @@ public class FindLap {
         }
         return lst;
     }
-
 }
