@@ -2,6 +2,9 @@ public class Laptop {
     String name;
     String color;
 
+    String OS;
+    int ram;
+    int memory;
     public void setName(String name) {
         this.name = name;
     }
@@ -22,9 +25,7 @@ public class Laptop {
         this.memory = memory;
     }
 
-    String OS;
-    int ram;
-    int memory;
+
 
     Laptop(String name, String color, String OS, int ram, int memory) {
         setName(name);
