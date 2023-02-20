@@ -1,19 +1,17 @@
 package Car;
 
 import Autos.Auto;
-//import Bus.Bus;
 import Transoport.Transport;
 
 import java.util.*;
-import java.util.function.Consumer;
 
 public class Car extends Auto {
-    private String brand;
+    private final String brand;
     private int maxSpeed;
     private int countseat;
     int index = 0;
-    private String color;
-    private double price;
+    private final String color;
+    private final double price;
 
     public final static List<Car> carList = new ArrayList<>();
 
@@ -23,9 +21,9 @@ public class Car extends Auto {
     public Car(String vin, String type, String color, double price, int countseat, String brand, int maxSpeed) {
         super(vin, type, color, price, countseat);
         this.brand = brand;
-        this.maxSpeed = maxSpeed;
         this.color = color;
         this.price = price;
+        this.maxSpeed = maxSpeed;
         if (countseat > 6 || countseat < 1) {
             throw new IllegalArgumentException("Не корректрый ввод данных");
         }
@@ -68,28 +66,15 @@ public class Car extends Auto {
 
     @Override
     public String next() {
-        switch (index) {
-            case (0):
-                return String.format("Brand: %s", this.brand);
-
-            case (1):
-                return String.format("VIN: %s", this.getVin());
-
-            case (2):
-                return String.format("Type: %s", this.getType());
-
-            case (3):
-                return String.format("Количество мест: %s", this.countseat);
-
-            case (4):
-                return String.format("Цена: %s", this.price);
-
-            case (5):
-                return String.format("Свет: %s", this.color);
-
-            default:
-                return null;
-        }
+        return switch (index) {
+            case (0) -> String.format("Brand: %s", this.brand);
+            case (1) -> String.format("VIN: %s", this.getVin());
+            case (2) -> String.format("Type: %s", this.getType());
+            case (3) -> String.format("Количество мест: %s", this.countseat);
+            case (4) -> String.format("Цена: %s", this.price);
+            case (5) -> String.format("Свет: %s", this.color);
+            default -> null;
+        };
     }
 
 
@@ -98,7 +83,7 @@ public class Car extends Auto {
     @Override
     public Iterator<Transport> iterator() {
         Iterator<Transport> it = new Iterator<Transport>() {
-            private int index1 = 0;
+            private final int index1 = 0;
             @Override
             public boolean hasNext() {
                 return index1 < carList.size();

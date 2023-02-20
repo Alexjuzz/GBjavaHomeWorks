@@ -9,11 +9,11 @@ import java.util.List;
 
 
 public class Bus extends Auto {
-    private String brand;
+    private final String brand;
     int index = 6;
-    private int countseat;
-    private double price;
-    private  String color;
+    private final int countseat;
+    private final double price;
+    private final String color;
     public final  static List<Bus> busList = new ArrayList<>();
     public Bus(String vin, String type, String color,double price, int countseat, String brand) {
         super(vin, type, color,price,countseat);
@@ -52,28 +52,15 @@ public class Bus extends Auto {
 
     @Override
     public String next() {
-        switch (index) {
-            case (0):
-                return String.format("Brand: %s",this.brand);
-
-            case (1):
-                return String.format("Brand: %s",this.getVin());
-
-            case (2):
-                return String.format("Brand: %s",this.getType());
-
-            case (3):
-                return String.format("Brand: %s",this.countseat);
-
-            case (4):
-                return String.format("Brand: %s",this.price);
-
-            case (5):
-                return String.format("Brand: %s",this.color);
-
-            default:
-                return null;
-        }
+        return switch (index) {
+            case (0) -> String.format("Brand: %s", this.brand);
+            case (1) -> String.format("Brand: %s", this.getVin());
+            case (2) -> String.format("Brand: %s", this.getType());
+            case (3) -> String.format("Brand: %s", this.countseat);
+            case (4) -> String.format("Brand: %s", this.price);
+            case (5) -> String.format("Brand: %s", this.color);
+            default -> null;
+        };
 
     }
 
