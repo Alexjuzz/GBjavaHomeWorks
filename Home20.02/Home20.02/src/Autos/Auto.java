@@ -3,10 +3,10 @@ package Autos;
 import Transoport.Transport;
 
 public abstract  class Auto extends Transport {
-    private String color;
+    private final String color;
 
-    private int countseat;
-    private double price;
+    private final int countseat;
+    private final double price;
 
 
 

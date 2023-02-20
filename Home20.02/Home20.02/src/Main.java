@@ -17,18 +17,18 @@ public class Main {
         Bus bus2 = new Bus("q23c11","Komer","black",101,20,"daewo");
         Bus bus3 = new Bus("qadcawdz","Komer","orange",105,20,"daewo");
 
-        // Проверка Вывода списков трансопрта и работы hasnext
-//        System.out.println(Transport.transportList);
-//        System.out.println(Transport.mapOb);
-//        while (Carx.hasNext()){
-//            System.out.println(Carx.next());
-//        }
+//         Проверка Вывода списков трансопрта и работы hasnext
+        System.out.println(Transport.transportList);
+        System.out.println(Transport.mapOb);
+        while (Carx.hasNext()){
+            System.out.println(Carx.next());
+        }
 
-        /// ПРОВЕРКА РАБОТЫ ФОРЕАЧ
-//        for (Transport b : Bus.busList
-//             ) {
-//            System.out.println(b);
-//        }
+//        / ПРОВЕРКА РАБОТЫ ФОРЕАЧ
+        for (Transport b : Bus.busList
+             ) {
+            System.out.println(b);
+        }
 
         /// ПРОВЕРКА СОРТИРОВКИ
         System.out.println(Bus.busList);

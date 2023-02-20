@@ -24,17 +24,14 @@ public class Car extends Auto {
         this.color = color;
         this.price = price;
         this.maxSpeed = maxSpeed;
+        this.countseat = countseat;
         if (countseat > 6 || countseat < 1) {
             throw new IllegalArgumentException("Не корректрый ввод данных");
         }
-        setCountseat(countseat);
         addObj();
 
     }
-    public void setCountseat(int countseat) {
 
-        this.countseat = countseat;
-    }
 
     // ---------------------------------------------------------------------------------------------------------
     // Метод TOSTRING

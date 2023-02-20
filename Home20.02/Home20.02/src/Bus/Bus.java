@@ -63,24 +63,18 @@ public class Bus extends Auto {
         };
 
     }
-
-
     public String getBrand() {
         return brand;
     }
-
     public int getIndex() {
         return index;
     }
-
     public int getCountseat() {
         return countseat;
     }
-
     public double getPrice() {
         return price;
     }
-
     public String getColor() {
         return color;
     }
