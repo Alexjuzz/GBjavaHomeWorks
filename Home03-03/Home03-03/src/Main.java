@@ -7,7 +7,6 @@ public class Main {
         GeneratorOfPlace generator = new GeneratorOfPlace();
         Place  o = new Place();
         System.out.println(o.getStrings());
-        System.out.println(o.a);
 
 
 
