@@ -11,7 +11,7 @@ public class Weather  implements Randomable {
         weathers = new ArrayList<>();
         weathers.add("Sunny");
         weathers.add("Cloudy");
-        weathers.add("rainy");
+        weathers.add("Rainy");
     }
     @Override
     public String random() {
