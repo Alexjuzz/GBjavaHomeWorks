@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
         //   isFloat();
+        //isNotEmptyString();
     }
         // Реализуйте метод, который запрашивает у пользователя ввод дробного числа (типа float),
         // и возвращает введенное значение. Ввод текста вместо числа не должно приводить к падению приложения,
@@ -20,6 +20,23 @@ public class Main {
                 isFloat();
             }
         }
+   // 3  Разработайте программу, которая выбросит
+   // Exception, когда пользователь вводит пустую строку. Пользователю должно показаться сообщение, что пустые строки вводить нельзя
+
+        public static void isNotEmptyString(){
+        Scanner scanner = new Scanner(System.in);
+        try{
+            String str = scanner.nextLine();
+            if(str.isEmpty()){
+                throw  new RuntimeException("Невозможно ввести пустую строку");
+            }
+            System.out.println(str);
+
+        }catch (Exception e ){
+            e.printStackTrace();
+        }
+        }
+
     }
 
 
