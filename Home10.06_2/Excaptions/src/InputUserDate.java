@@ -15,8 +15,9 @@ public class InputUserDate {
     }
    private  String[] inPutStr() {
         String resultStr;
-        String[] checkArray;
-        try ( BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));){
+        String[] checkArray = null;
+       BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try {
             resultStr = reader.readLine();
             checkArray = resultStr.split(" ");
             if (checkLengthDate(checkArray)) {
@@ -31,8 +32,6 @@ public class InputUserDate {
             if(!checkNumber(checkArray)){
                 throw  new RuntimeException("Указан неверный формат номера");
             }
-
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -76,8 +75,10 @@ public class InputUserDate {
             }
             bufferedReader.write(st + "\n");
             bufferedReader.flush();
+            bufferedReader.close();
         }else {
             System.err.println("Данный абонент уже находится в списке");
+            UserInputDate();
         }
     }
 
@@ -98,8 +99,8 @@ public class InputUserDate {
                 if(count == 0){
                     return false;
                 }
-
         }
+        bufferedReader.close();
         return true;
     }
 }

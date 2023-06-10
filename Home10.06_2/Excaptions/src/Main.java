@@ -28,9 +28,9 @@ import java.util.Date;
 Слушатель напишите приложение, которое будет запрашивать у пользователя следующие данные , разделенные пробелом
  */
 public class Main {
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args)  {
         InputUserDate inputUserDate = new InputUserDate();
-    inputUserDate.UserInputDate();
+        inputUserDate.UserInputDate();
 
 
 
