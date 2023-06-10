@@ -9,12 +9,13 @@ public abstract class Fishrod extends Item {
     private String fishingLine;
 
     @Override
-    public String description(String text) {
-        return "Удочка :" + this.name;
+    public String description() {
+        return "Удочка: " + this.name;
     }
 
     public Fishrod(String name, double castingDistance, int burden, String fishingLine) {
-        super(name);
+
+        this.name = name;
         this.castingDistance = castingDistance;
         this.burden = burden;
         this.fishingLine = fishingLine;

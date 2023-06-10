@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b2d75c6-383f-4758-843f-9322d40bf435" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/ChoiseFishrod.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/ChoiseFishrod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/ChoiseLure.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/ChoiseLure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/Exit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/Manual.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/Manual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/MenuItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Menu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/view/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/view/Console.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/view/Options.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/view/Options.java" afterDir="false" />
-    </list>
+    <list default="true" id="3b2d75c6-383f-4758-843f-9322d40bf435" name="Changes" comment="nothing" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +12,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2R0jx0zT1kTxcckdNbsJ12UvVjg" />
   <component name="ProjectViewState">
@@ -45,6 +38,18 @@
       <option name="presentableId" value="Default" />
       <updated>1686394135386</updated>
     </task>
+    <task id="LOCAL-00001" summary="nothing">
+      <created>1686394779339</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686394779339</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="nothing" />
+    <option name="LAST_COMMIT_MESSAGE" value="nothing" />
   </component>
 </project>
