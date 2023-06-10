@@ -1,10 +1,13 @@
 package UI.Commands;
 
 import UI.view.Console;
+import UI.view.Options;
 
-public class ChoiseLure extends Commands {
-    public ChoiseLure(Console console) {
-        super(console);
+public class ChoiseLure implements Options {
+
+    @Override
+    public String toString() {
+        return "ChoiseLure menu";
     }
 
     @Override
@@ -14,6 +17,6 @@ public class ChoiseLure extends Commands {
 
     @Override
     public String discription() {
-        return null;
+        return "выбрал наживку";
     }
 }
