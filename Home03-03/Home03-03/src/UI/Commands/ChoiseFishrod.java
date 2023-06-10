@@ -1,11 +1,13 @@
 package UI.Commands;
 
 import UI.view.Console;
+import UI.view.Options;
 
-public class ChoiseFishrod extends Commands {
+public class ChoiseFishrod implements Options {
 
-    public ChoiseFishrod(Console console) {
-        super(console);
+    @Override
+    public String toString() {
+        return "ChoiseFishrod menu";
     }
 
     @Override
@@ -15,6 +17,6 @@ public class ChoiseFishrod extends Commands {
 
     @Override
     public String discription() {
-        return null;
+        return "выбрал удочку";
     }
 }

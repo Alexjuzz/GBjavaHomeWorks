@@ -1,11 +1,10 @@
 package UI.Commands;
 
 import UI.view.Console;
+import UI.view.Options;
 
-public class Manual extends Commands {
-    public Manual(Console console) {
-        super(console);
-    }
+public class Manual implements Options {
+
 
     @Override
     public void execute() {
@@ -14,6 +13,11 @@ public class Manual extends Commands {
 
     @Override
     public String discription() {
-        return null;
+        return "Выполнился МАНУАЛ";
+    }
+
+    @Override
+    public String toString() {
+        return "Manual menu";
     }
 }

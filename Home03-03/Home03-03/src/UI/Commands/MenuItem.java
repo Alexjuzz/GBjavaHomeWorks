@@ -1,18 +1,14 @@
 package UI.Commands;
 
-import UI.view.Console;
-import UI.view.Options;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public  class Commands {
+import UI.view.Options;
 
+import java.util.HashMap;
 
-      @Override
-      public abstract void execute();
-
-      @Override
-      public abstract String discription();
-
+public abstract class MenuItem implements Options{
+    @Override
+    public abstract String toString();
 }

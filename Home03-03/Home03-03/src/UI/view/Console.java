@@ -14,8 +14,25 @@ public class Console implements view{
     @Override
     public void start() {
         start = true;
-        while (start){
+        scanner = new Scanner(System.in);
+        menu = new Menu(this);
+        hello();
 
+        while (start){
+            int i = scanner.nextInt();
+            getMenu(i);
         }
+    }
+    public void finish(){
+        start = false;
+    }
+    void prints(String text){
+        System.out.println(text);
+    }
+    public void hello(){
+        System.out.println( menu.printMenu());
+    }
+    public void getMenu(int i){
+        menu.getMenu(i);
     }
 }
