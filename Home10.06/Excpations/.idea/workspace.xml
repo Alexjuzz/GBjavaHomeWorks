@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3b2d75c6-383f-4758-843f-9322d40bf435" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/ChoiseFishrod.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/ChoiseFishrod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/ChoiseLure.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/ChoiseLure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/Manual.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/Manual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Commands/MenuItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/Menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/view/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/view/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/view/Options.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Home03-03/Home03-03/src/UI/view/Options.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2R0jx0zT1kTxcckdNbsJ12UvVjg" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b2d75c6-383f-4758-843f-9322d40bf435" name="Changes" comment="" />
+      <created>1686394135386</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686394135386</updated>
+    </task>
+    <servers />
+  </component>
+</project>
