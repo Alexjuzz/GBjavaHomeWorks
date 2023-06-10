@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //   isFloat();
-        //isNotEmptyString();
+        //   isFloat(); //  ПРОВЕРКА МЕТОДА FLOAT
+        //isNotEmptyString(); // ПРОВЕРКА МЕТОДА ПУСТОЙ СТРОКИ
     }
         // Реализуйте метод, который запрашивает у пользователя ввод дробного числа (типа float),
         // и возвращает введенное значение. Ввод текста вместо числа не должно приводить к падению приложения,
