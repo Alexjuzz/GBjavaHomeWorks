@@ -1,19 +1,20 @@
 import java.util.Scanner;
-
+import java.util.Random;
 public class Main {
     static char player_marker = 'X';
     static char AI_marker = 'O';
     static char empty_marker = '*';
+    static  Random random = new Random();
 
     static char[][] map;
 
-    static int winLim = 3;
+    static int winLim = 4;
     static int sizeX;
     static int sizeY;
     static int posX;
     static int posY;
     static int firststepAI = 0;
-    static int difficult = 4;
+    static int difficult = 2;
     static Scanner scanner;
 
 
@@ -71,19 +72,19 @@ public class Main {
         boolean bool = false;
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
-                if (lineCheck(marker, i, j)) {
-                    System.out.println("line win");
+                if (lineCheck(marker, i, j) == winLim) {
+                    System.out.println("line win" + marker);
                     return true;
                 }
-                if (verticalCheck(marker, i, j)) {
+                if (verticalCheck(marker, i, j) == winLim) {
                     System.out.println("вертикаль");
                     return true;
                 }
-                if (updiagCheck(marker, i, j)) {
+                if (updiagCheck(marker, i, j) == winLim) {
                     System.out.println("diag up");
                     return true;
                 }
-                if (downdiagcheck(marker, i, j)) {
+                if (downdiagcheck(marker, i, j) == winLim) {
                     System.out.println("diag down");
                     return true;
                 }
@@ -91,81 +92,52 @@ public class Main {
         }
         return bool;
     }
-    static boolean lineCheck(char marker, int x, int y) {
-        boolean bool = false;
-        int AI_Count =0;
-        int count = 0;
 
-        for (int i = y, c = 0; c < winLim && y + winLim < map.length; i++, c++) {
+    static int lineCheck(char marker, int x, int y) {
+        int count = 0;
+        for (int i = y, c = 0; c < winLim && y + winLim <= map.length; i++, c++) {
             if (map[x][i] == marker) {
                 count++;
             }
-            if(map[x][i] == empty_marker && count >= 2 && AI_Count == 0){
-                AI_makeMove(x,i);
-                AI_Count++;
-            }if (count == winLim) {
-                return true;
-            }
         }
-        return bool;
+        return count;
     }
-    static boolean verticalCheck(char marker, int x, int y) {
-        boolean bool = false;
-        int AI_Count =0;
+
+    static int verticalCheck(char marker, int x, int y) {
+
         int count = 0;
 
-        for (int i = x, c = 0; c < winLim && x + winLim < map.length; i++, c++) {
+        for (int i = x, c = 0; c < winLim && x + winLim <= map.length; i++, c++) {
+
             if (map[i][y] == marker) {
                 count++;
             }
-            if(map[i][y] == empty_marker && count >= 2 && AI_Count == 0){
-                AI_makeMove(i,y);
-                AI_Count++;
-            }if (count == winLim) {
-                return true;
-            }
+
         }
-
-        return bool;
+        return count;
     }
-    static boolean updiagCheck(char marker, int x, int y) {
-        boolean bool = false;
-        int AI_Count =0;
-        int count = 0;
 
+
+    static int updiagCheck(char marker, int x, int y) {
+        int count = 0;
         for (int i = x, c = 0; c < winLim && i >= 0 && y < map.length; y++, i--, c++) {
             if (map[i][y] == marker) {
                 count++;
             }
-            if(map[i][y] == empty_marker && count >= 2 && AI_Count == 0){
-                AI_makeMove(i,y);
-                AI_Count++;
-            }if (count == winLim) {
-                return true;
-            }
         }
-        return bool;
+        return count;
     }
 
-    static boolean downdiagcheck(char marker, int x, int y) {
-        boolean bool = false;
-        int AI_Count =0;
+    static int downdiagcheck(char marker, int x, int y) {
         int count = 0;
         for (int i = x, c = 0; c < winLim && i < map.length && y < map.length; y++, i++, c++) {
             if (map[i][y] == marker) {
                 count++;
             }
-            if(map[i][y] == empty_marker && count >= 2 && AI_Count == 0){
-                AI_makeMove(i,y);
-                AI_Count++;
-            }if (count == winLim) {
-                return true;
-            }
-
         }
-
-        return bool;
+        return count;
     }
+
     static void makeMove(char symbol, int X, int Y) {
         posX = X - 1;
         posY = Y - 1;
@@ -179,49 +151,153 @@ public class Main {
             map[posX][posY] = symbol;
         }
     }
-    static void AI_makeMove(int x, int y) {
-        if (firststepAI == 0) {
-            x = map.length / 2;
-            y = map[0].length / 2;
-            if (!isBusy(x, y)) {
-                map[x][y] = AI_marker;
-                firststepAI++;
 
-            } else {
-                map[x + 1][y] = AI_marker;
-            }
-        } else if(!isBusy(x,y)) {
-            map[x][y] = AI_marker;
-        }else {
-            map[x][y] = AI_marker;
-        }
-    }
-
-    /**
-     * TODO доделать генератор
-     *
-     * @return
-     */
-    static int[] generatePoints() {
-
-        int coor1;
-        int coor2;
+    static void AI_LineStep(int x, int y) {
         int count = 0;
-        for (int i = 0; i < map.length; i++) {
-            //    checkLineForward(i);
+        for (int i = y, c = 0; c < winLim && y + winLim <= map.length; i++, c++) {
+            if (map[x][i] == player_marker) {
+                count++;
+            }
+
+            if (winLim - 1 == count) {
+                for (int j = y, q = 0; q < winLim; j++, q++) {
+                    if (map[x][j] == empty_marker) {
+                        map[x][j] = AI_marker;
+                        break;
+                    }
+                }
+            }
         }
-        return new int[2];
     }
+
+    static void AI_verticalStep(int x, int y) {
+        int count = 0;
+
+        for (int i = x, c = 0; c < winLim && x + winLim <= map.length; i++, c++) {
+            if (map[i][y] == player_marker) {
+                count++;
+            }
+
+            if (winLim - 1 == count) {
+                for (int j = x, q = 0; q < winLim; j++, q++) {
+                    if (map[j][x] == empty_marker) {
+                        map[j][x] = AI_marker;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    static void AI_downDiagStep(int x, int y) {
+        int count = 0;
+        for (int i = x, c = 0,k = y; c < winLim && i <map.length && k < map.length; k++, i++, c++) {
+            if (map[i][k] == player_marker) {
+                count++;
+            }
+
+
+            if (winLim - 1 == count) {
+                for (int j = x, q = 0,l = y; q < winLim; j++, q++,l++) {
+                    if (map[j][l] == empty_marker) {
+                        map[j][l] = AI_marker;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    static void AI_upDiagStep(int x, int y) {
+        int count = 0;
+        for (int i = x, c = 0,k = y; c < winLim && i > 0 && k < map.length; k++, i--, c++) {
+            if (map[i][k] == player_marker) {
+                count++;
+            }
+
+
+            if (winLim - 1 == count) {
+                for (int j = x, q = 0,l = y; q < winLim; j--, q++,l++) {
+                    if (map[j][l] == empty_marker) {
+                        map[j][l] = AI_marker;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    static boolean AI_(){
+
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[0].length; j++) {
+                if (lineCheck(player_marker, i, j) == winLim - 1) {
+                    AI_LineStep(i, j);
+                    return true;
+                }
+                if (verticalCheck(player_marker, i, j) == winLim - 1) {
+                    AI_verticalStep(i, j);
+                    return true;
+                }
+                if (updiagCheck(player_marker, i, j) == winLim - 1) {
+                    AI_upDiagStep(i, j);
+                    return true;
+                }
+                if (downdiagcheck(player_marker, i, j) == winLim - 1) {
+                    AI_downDiagStep(i, j);
+                  return true;
+                }
+
+            }
+        }
+        return false;
+    }
+
+
+    static void AI_makeMove() {
+
+        if (firststepAI == 0) {
+            posX = map.length / 2;
+            posY = map[0].length / 2;
+            if (!isBusy(posX, posY)) {
+                map[posX][posY] = AI_marker;
+                firststepAI++;
+            } else {
+                map[posX + 1][posY] = AI_marker;
+            }
+        } else if(AI_()){
+            System.out.println("1");
+        }else {
+          boolean a = true;
+          while (a){
+              int q = random.nextInt(map.length);
+              int w = random.nextInt(map.length);
+              if(!isBusy(q,w)){
+                  map[q][w] = AI_marker;
+                  a = false;
+              }
+          }
+        }
+
+    }
+
+
+
+
+
     public static void main(String[] args) {
         createMap();
         while (true) {
             int a = scanner.nextInt();
             int b = scanner.nextInt();
+            posX = a;
+            posY = b;
             makeMove(player_marker, a, b);
-            if (check(player_marker)) {
-                System.out.println("pobeda");
-            }
             print_map(map);
+            AI_makeMove();
+            print_map(map);
+
+
 //            generatePoints();
 
         }
