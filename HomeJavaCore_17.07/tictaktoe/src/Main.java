@@ -298,7 +298,6 @@ public class Main {
             print_map(map);
 
 
-            generatePoints();
 
         }
     }
