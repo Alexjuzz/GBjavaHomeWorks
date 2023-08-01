@@ -8,7 +8,7 @@ public class Main {
 
     static char[][] map;
 
-    static int winLim = 4;
+    static int winLim = 3;
     static int sizeX;
     static int sizeY;
     static int posX;
@@ -62,9 +62,9 @@ public class Main {
     }
 
     static boolean isBusy(int X, int Y) {
-        if (map[X][Y] != empty_marker) {
-            return true;
-        } else return false;
+        if (map[X][Y] == empty_marker) {
+            return false;
+        } else return true;
     }
 
 
@@ -259,7 +259,7 @@ public class Main {
         if (firststepAI == 0) {
             posX = map.length / 2;
             posY = map[0].length / 2;
-            if (!isBusy(posX, posY)) {
+            if (isBusy(posX, posY)) {
                 map[posX][posY] = AI_marker;
                 firststepAI++;
             } else {
@@ -282,6 +282,20 @@ public class Main {
     }
 
 
+    static void AI_newstep(int posX,int posY){
+        int Xlinepositive = 1;
+        int Ylinedown = 1;
+        int Updiag = 1;
+        int Downdiag = 1;
+        int Xlinenegative = 1;
+        int Ylineup = 1;
+        int Updiagback = 1;
+        int Downdiagback = 1;
+
+
+    };
+
+
 
 
 
@@ -294,6 +308,7 @@ public class Main {
             posY = b;
             makeMove(player_marker, a, b);
             print_map(map);
+            AI_newstep(a,b);
             AI_makeMove();
             print_map(map);
 
