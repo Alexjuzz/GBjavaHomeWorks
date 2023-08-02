@@ -33,7 +33,7 @@ public class Main {
         int result = 0;
         if (isValidSize(array)) {
             for (int i = 0; i < array.length; i++) {
-                for (int j = 0; j < array[0].length; j++) {
+                for (int j = 0; j < array[i].length; j++) {
                     if (parseToInt(array[i][j])) {
                         result += Integer.parseInt(array[i][j]);
                     } else {
@@ -51,7 +51,7 @@ public class Main {
      * @return true - если размер соответсвует false - если размер отличается от 4.
      */
     static boolean isValidSize(String array[][]) {
-        boolean b = true;
+
         if (array.length <= 0) {
             throw new MyArraySizeException("Неверный размер массива ", 0);
         }
@@ -65,7 +65,7 @@ public class Main {
                 }
             }
         }
-        return b;
+        return true;
     }
 
     /**
