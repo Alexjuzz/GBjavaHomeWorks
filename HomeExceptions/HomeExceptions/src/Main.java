@@ -12,14 +12,13 @@
 
 import MyException.MyArrayDataException;
 import MyException.MyArraySizeException;
-import MyException.MyExcpeption;
 
 public class Main {
     public static void main(String[] args) {
         String[][] q = {{"1", "3", "51", "31"},
                 {"1", "3", "51", "412"},
                 {"1", "3", "51", "412"},
-                {"1", "31", "513", "412","54"}};
+                {"1", "31", "513", "412","312"}};
 
         System.out.println(resultSumm(q));
     }
@@ -50,18 +49,18 @@ public class Main {
      * @param array - массив строк.
      * @return true - если размер соответсвует false - если размер отличается от 4.
      */
-    static boolean isValidSize(String array[][]) {
+    static boolean isValidSize(String[][] array) {
 
-        if (array.length <= 0) {
+        if (array.length == 0) {
             throw new MyArraySizeException("Неверный размер массива ", 0);
         }
-        for (int i = 0; i < array.length  ; i++) {
-            if (i >= 4  || array.length !=4) {
+        for (String[] strings : array) {
+            if (array.length != 4) {
                 throw new MyArraySizeException("Неверный размер массива x = ", array.length);
             }
-            for (int j = 0; j < array[i].length  ; j++) {
-                if (j >= 4 || array[i].length !=4 ) {
-                    throw new MyArraySizeException("Неверный размер массива y = ", array[i].length);
+            for (int j = 0; j < strings.length; j++) {
+                if (strings.length != 4) {
+                    throw new MyArraySizeException("Неверный размер массива y = ", strings.length);
                 }
             }
         }
@@ -74,9 +73,8 @@ public class Main {
      * @return true - если возможно. false - если не возможно.
      */
     static boolean parseToInt(String s) {
-        int a;
         try {
-            a = Integer.parseInt(s);
+          Integer.parseInt(s);
             return true;
         } catch (NumberFormatException e) {
             return false;
