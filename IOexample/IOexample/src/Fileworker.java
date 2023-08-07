@@ -10,7 +10,12 @@ public class Fileworker {
     private final int CHAR_BOUND_H = 122;
     private final Random random = new Random();
 
-    public String generateRandomString(int sizeString) {
+    /**
+     * Генератор случайных символов Aa - Zz.
+     * @param sizeString - количество символов.
+     * @return - строка с итоговым набором символов.
+     */
+    private String generateRandomString(int sizeString) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < sizeString; i++) {
             int x = random.nextInt(CHAR_BOUND_L, CHAR_BOUND_H + 1);
@@ -22,12 +27,25 @@ public class Fileworker {
         return stringBuilder.toString();
     }
 
-    public void fileCreatorSymbols(String filename, int size) throws IOException {
+    /**
+     * Приватный  метод заполнения файла случайными символами.
+     * @param filename - Название файла.
+     * @param size - колпичество символов.
+     * @throws IOException
+     */
+    private void fileCreatorSymbols(String filename, int size) throws IOException {
         try (FileOutputStream fileOutputStream = new FileOutputStream(filename)) {
             fileOutputStream.write(generateRandomString(size).getBytes());
         }
     }
 
+    /**
+     * Метод поиска совпадения строки, если в файле имеется строка совподающая с запросом будет возращего true.
+     * @param filename - название файла в котором будет производиться поиск
+     * @param searchString - поисковый запрос
+     * @return - true - есть совпадение, false - нету
+     * @throws IOException
+     */
     public boolean searchStringSymbols(String filename, String searchString) throws IOException {
         try (FileInputStream fileInputStream = new FileInputStream(filename)) {
             int i;
@@ -51,6 +69,13 @@ public class Fileworker {
         return false;
     }
 
+    /**
+     * Метод обьединения двух файлов в один.
+     * @param File1 - название первого файла(путь)
+     * @param File2 - название второго файла(путь)
+     * @param ResulFileName - название результируешего файла
+     * @throws IOException
+     */
     public void fileConcatonation(String File1, String File2, String ResulFileName) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
         try (FileInputStream fileInputStream = new FileInputStream(File1)) {
@@ -71,6 +96,13 @@ public class Fileworker {
         }
     }
 
+    /**
+     * Метод для создания однотипных файлов с разным набором латинских символов Aa-Zz.
+     * @param nameFiles - название файла - "Example"  > Example_1.txt
+     * @param countFiles - Числов файлов
+     * @param sizeFiles - Количесво символов в файле
+     * @throws IOException - искл
+     */
     public void generateFiles(String nameFiles, int countFiles, int sizeFiles) throws IOException {
         String[] filenames = new String[countFiles];
         for (int i = 0; i < countFiles; i++) {
@@ -82,8 +114,12 @@ public class Fileworker {
         }
     }
 
-    //1. Написать функцию, создающую резервную копию всех
-    //файлов в директории(без поддиректорий) во вновь созданную папку ./backup
+
+    /**
+     * Метод создания копии в отдельную паппку /back в текущей дириктории
+     * @param dir - параметр в какой дерриктории сделать backup, будут взяты все файлы указаной дириктории
+     * @throws IOException
+     */
     public void createBackUp(String dir) throws IOException {
         File file = new File(dir);
         File files[] = file.listFiles();

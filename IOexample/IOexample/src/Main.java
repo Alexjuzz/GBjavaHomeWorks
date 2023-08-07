@@ -18,10 +18,9 @@ public class Main {
 
      public static void main(String[] args) throws IOException {
         Fileworker fileworker = new Fileworker();
-        fileworker.fileCreatorSymbols("1",95);
         fileworker.searchStringSymbols("1","AE");
         fileworker.generateFiles("example",3,100);
-        FileTree.printTree(new File("."),"",true);
+        FileTree.printTree(new File("."),"",true,false  );
         fileworker.createBackUp(".idea");
 
     }
