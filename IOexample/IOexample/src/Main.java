@@ -18,11 +18,11 @@ public class Main {
 
      public static void main(String[] args) throws IOException {
         Fileworker fileworker = new Fileworker();
-//        fileworker.fileCreatorSymbols("1",95);
-//        fileworker.searchStringSymbols("1","AE");
-//        fileworker.generateFiles("example",3,100);
-//        FileTree.printTree(new File("."),"",true);
-        fileworker.createBackUp("src");
+        fileworker.fileCreatorSymbols("1",95);
+        fileworker.searchStringSymbols("1","AE");
+        fileworker.generateFiles("example",3,100);
+        FileTree.printTree(new File("."),"",true);
+        fileworker.createBackUp(".idea");
 
     }
 }

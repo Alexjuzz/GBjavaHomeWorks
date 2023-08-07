@@ -44,7 +44,6 @@ public class Fileworker {
                     continue;
                 }
                 if (counter == searchString.length()) {
-                    System.out.println("nice");
                     return true;
                 }
             }
@@ -72,16 +71,17 @@ public class Fileworker {
         }
     }
 
-    public void generateFiles(String nameFiles,int countFiles,int sizeFiles) throws IOException {
-        String [] filenames =  new String[countFiles];
+    public void generateFiles(String nameFiles, int countFiles, int sizeFiles) throws IOException {
+        String[] filenames = new String[countFiles];
         for (int i = 0; i < countFiles; i++) {
-            filenames[i]  =nameFiles + "_" + i + ".txt";
-           fileCreatorSymbols(filenames[i],sizeFiles);
-            System.out.printf("File create: %s \n",filenames[i]);
+            filenames[i] = nameFiles + "_" + i + ".txt";
+            fileCreatorSymbols(filenames[i], sizeFiles);
+            System.out.printf("File create: %s \n", filenames[i]);
 
 
         }
     }
+
     //1. Написать функцию, создающую резервную копию всех
     //файлов в директории(без поддиректорий) во вновь созданную папку ./backup
     public void createBackUp(String dir) throws IOException {
@@ -91,22 +91,19 @@ public class Fileworker {
         ss.mkdirs();
         StringBuilder sb = new StringBuilder();
         int i;
-        for (File f: files ) {
-            if(f.isFile()){
+        for (File f : files) {
+            if (f.isFile()) {
                 try (FileInputStream fileInputStream = new FileInputStream(f)) {
-                    while ((i = fileInputStream.read()) != -1){
-                        sb.append((char)i);
+                    while ((i = fileInputStream.read()) != -1) {
+                        sb.append((char) i);
                     }
+                    try (FileOutputStream fileOutputStream = new FileOutputStream(dir + "/back/" + f.getName())) {
+                        fileOutputStream.write(sb.toString().getBytes());
 
-                   try (FileOutputStream fileOutputStream = new FileOutputStream(dir+"/back/"+f.getName())){
-
-                       fileOutputStream.write(sb.toString().getBytes());
-                       fileOutputStream.close();
-                   }
+                    }
                 }
             }
         }
-
 
 
     }
