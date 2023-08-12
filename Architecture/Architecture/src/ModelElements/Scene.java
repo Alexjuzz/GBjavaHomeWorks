@@ -8,12 +8,14 @@ public class Scene {
     public int id = 1 ;
     List<Flash> flashes;
     List<PoligonalModel> models;
+    List<Camera> cameras;
 
 
 
-    public Scene(List<Flash> flashes, List<PoligonalModel> models) {
+    public Scene(List<Flash> flashes, List<PoligonalModel> models,List<Camera> cameras) {
         this.flashes = flashes;
         this.models = models;
+        this.cameras = cameras;
         id++;
     }
 
