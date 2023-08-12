@@ -39,6 +39,6 @@ public class ModelStore {
 
     public void NotifyChange(IModelChanger iModelChanger){};
     public Scene GetScena(int number){
-        return null;
+        return scenes.get(number);
     }
 }
