@@ -16,6 +16,7 @@ public class ModelStore {
         public List<Scene> scenes;
         public List<Flash> flashes;
         public List<Camera> cameras;
+        private List<IModelChangedObserver> changeObservers;
 
     public ModelStore(List<IModelChangedObserver> changeObservers) {
         this.changeObservers = changeObservers;
@@ -24,9 +25,17 @@ public class ModelStore {
         flashes = new ArrayList<>();
         cameras = new ArrayList<>();
 
+        models.add(new PoligonalModel(null));
+        scenes.add(new Scene(flashes,models,cameras));
+        cameras.add(new Camera());
+
+
+
+
+
     }
 
-    private List<IModelChangedObserver> changeObservers;
+
 
     public void NotifyChange(IModelChanger iModelChanger){};
     public Scene GetScena(int number){
