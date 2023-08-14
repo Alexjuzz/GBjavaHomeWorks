@@ -24,7 +24,8 @@ public class ModelStore implements IModelChanger{
         scenes  = new ArrayList<>();
         flashes = new ArrayList<>();
         cameras = new ArrayList<>();
-
+        //Для flashes тоже нужно было добавить элемент
+        // и в сцене можно сохранять id
         models.add(new PoligonalModel(null));
         scenes.add(new Scene(flashes,models,cameras));
         cameras.add(new Camera());
