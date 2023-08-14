@@ -11,7 +11,7 @@ public class Scene {
     List<Camera> cameras;
 
 
-
+    // Этот конструктор с подвохом,думаю проще посмотреть разбор в начале записи 2 семинара 
     public Scene(List<Flash> flashes, List<PoligonalModel> models,List<Camera> cameras) {
         this.flashes = flashes;
         this.models = models;
