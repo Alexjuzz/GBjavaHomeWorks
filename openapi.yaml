@@ -1,0 +1,165 @@
+openapi : 3.0.0 
+info : 
+  title: Получение информации о серверах
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080/api/v1/
+    description: Dev server
+paths:
+  /clouds:
+    get:
+      summary: Получение списка облачных сервисов
+      tags: 
+        - clouds
+      operationId: getAllClouds
+      responses:
+        "200":
+          description: Успешное обращение, список отправлен
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/clouds"
+        "default":
+          description: Что-то не сработало
+          content:
+            application/json:
+              schema: 
+               $ref: "#/components/schemas/Error"
+  /clouds/{cloud_ID}:
+      get:
+        summary: Получение данных облака по ID
+        tags: 
+          - clouds
+        operationId: getCloudByID
+        parameters: 
+          - name: cloud_ID
+            in: path
+            required: true
+            description: Идентификатор облака
+            schema:
+              type: string
+              example: "1234"
+        responses:
+          "200":
+            description: Успешное обращение, список отправлен
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/cloud"
+          "404":
+            description: "Сервер недоступен"
+            content:
+              application/json:
+                schema:
+                 properties:
+                  code:
+                   type: string
+                   example: 404 Not Found — сервер не нашел ресурс по этому адресу
+          "501":
+            description: "Сервер недоступен"
+            content:
+              application/json:
+                schema:
+                 properties:
+                  code:
+                   type: string
+                   example:  501 Not Implemented — сервер не поддерживает функциональность для ответа на этот запрос;
+
+          "default":
+            description: Что-то не сработало
+            content:
+              application/json:
+                schema: 
+                 $ref: "#/components/schemas/Error"
+  
+  /clouds/reservation:
+    post:
+      summary: Резервирование облака
+      tags:
+      - reservation
+      operationId: setResevation
+      responses:
+        "200":
+          description: "Успешное резервирование"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/reservation"
+        "404":
+          description: "Сервер недоступен"
+          content:
+            application/json:
+              schema:
+                 properties:
+                  code:
+                   type: string
+                   example: 404 Not Found — сервер не нашел ресурс по этому адресу
+        "default":
+          description: Не удалось забронировать данны
+                
+            
+components:
+  schemas:
+    cloud:
+      type: object
+      required: 
+        - name
+        - location
+      properties:
+         cloud_ID:
+          type: string
+          example: 1234
+         name: 
+          type: string
+          example: Nord_cloud
+         location: 
+          type : string
+          enum: 
+            - America
+            - Europe
+            - Russia
+            - China
+            - Brasil
+            - Korea
+            - Kazahstan
+         server_id:
+          type: string
+          example: "Server_№31"
+          description: Выбор локации где будет находиться сервис
+          
+    clouds:
+      type: array
+      items:
+        $ref: "#/components/schemas/cloud"
+    Error: 
+      type: object
+      required: 
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string  
+          
+    reservation:
+        type: object
+        required:
+          - date 
+        properties:
+          operation:
+            type: boolean
+            example: true
+          cloud_ID:
+            type: string
+            example: "cloud_ID"
+          user_ID:
+            type: string
+            example: user_123
+          create_at: 
+            type: string
+            format: 2022-07-01T15:00:00+01
+          
+          
+        
+        
