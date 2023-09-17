@@ -1,0 +1,319 @@
+openapi : 3.1.0 
+info : 
+  title: Сервис работы с робот-пылесосом
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080/api/v1/
+    description: Dev server
+paths:
+  /robots:
+    get:
+      summary: Метод получения роботов
+      tags:
+        - robots
+      operationId: getAllRobots
+      responses:
+        "200":
+            description: Успешный ответ со списком роботов
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/robots"
+        "default":
+            description: Ошибка ответа
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Error"
+  /calendar:
+    get:
+      summary: Метод для получения колендаря
+      tags: 
+        - calendar
+      operationId: getCalendar
+      responses:
+        "200":
+          description: Успешное получение календаря со всеми запланироваными задачами
+          content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/calendar"
+        "default":
+          description: Ошибка ответа
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+                
+    post:
+      summary: Добавление записи в календарь
+      tags: 
+        - calendar
+      operationId: setRecord
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/calendar"
+      responses:
+        "200":
+          description: Успешное получение календаря со всеми запланироваными задачами
+          content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/calendar"
+        "default":
+          description: Ошибка ответа
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+ 
+          
+  /calendar/{day}:
+    get:
+      summary: Метод получения дня
+      tags:
+        - day
+      operationId: getDay
+      parameters:
+        - name: day
+          in: path
+          required: true
+          description: отправив дату получим рассписание дня
+          schema:
+            type: string
+            example: 01.03.2023
+      responses:
+            "200":
+              description: Успешное получение дня
+              content:
+                application/json:
+                 schema:
+                  $ref: "#/components/schemas/day"
+            "default":
+              description: Ошибка ответа
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Error"
+                  
+    delete:
+      summary: Метод очистки даты
+      tags :
+        - day
+      operationId: deleteByDay
+      parameters: 
+        - name: day
+          in: path
+          required: true
+          description: очистить события этого дня
+          schema:
+            type: string
+            example: 01.03.2023
+      responses:
+        "200":
+          description: задания данного дня были удалены
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/day"
+        "default":
+          description: Ошибка ответа
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+                
+                
+  /robots/{robot_id}/start:       
+    post:
+      summary: метод запуска робота
+      tags: 
+        - robots
+      operationId: robotStart
+      parameters:
+        - name: robot_id
+          in: path
+          required: true
+          description: Запуск определенного робота к работе
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Успешный запуск
+          content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/start"
+        "default":
+          description: Ошибка ответа
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+                
+  /robots/{robot_id}/stop:       
+    post:
+      summary: метод остановки робота
+      tags: 
+        - robots
+      operationId: robotStop
+      parameters:
+        - name: robot_id
+          in: path
+          required: true
+          description: Остановка определенного робота к работе
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Успешный запуск
+          content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/stop"
+        "default":
+          description: Ошибка ответа
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"              
+                
+                
+  /robots/{robot_id}:
+    get:
+      summary: Метод получения одного робота
+      tags: 
+        - robots
+      operationId: getRobotById
+      parameters: 
+        - name: robot_id
+          in: path
+          required: true
+          description: Идентификатор робота
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Успешное получение робота
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/robots"
+        "default":
+          description: Ошибка ответа
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+        summary : Метод удаления робота
+        tags: 
+          - robots
+        operationId: deleteById
+        parameters: 
+           - name: robot_id
+             in: path
+             required: true
+             description: Идентификатор робота
+             schema:
+               type: string
+        responses:
+         "200":
+          description: Успешное удаление робота
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/robots"
+         "default":
+          description: Ошибка ответа
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+   
+    
+    
+    
+      
+               
+components:
+  schemas:
+      robot:
+        type: object
+        required:
+         - name
+         - status
+        properties:
+          robot_id:
+            type: integer
+            example: 13
+          name:
+            type: string
+            example: Robot_391923
+          version:
+            type: string
+            example: v0.0.1
+          status:
+            type: string
+            enum: 
+              - charging
+              - run
+              - error
+              - updating
+            example: charging
+            description: Текушее состояние робота
+          statusID:
+            type: integer
+            example: 1
+            
+            
+      robots:
+        type: array
+        items:
+          $ref: "#/components/schemas/robot"
+      
+      calendar:
+        type: object
+        required: 
+          - listdate
+        properties:
+          listdate:
+            type: array
+            example: {Day 01.03.2023 MONDAY : {Type: water clean, TimeStart : 15-30},DateRecord : "25.02.2023"}
+            items:
+              $ref: "#/components/schemas/calendar"
+      
+      Error:
+        type: object
+        required: 
+          - code
+          - message
+        properties:
+          code: 
+            type: integer
+          message:
+            type: string
+      
+      day:
+        required:
+          - message
+        properties:
+          message:
+            type: string
+            example: "Type : water clean. TimeStart : 15-30"
+        
+      start:
+        type: boolean
+        example: true
+      stop:
+        type: boolean
+        example: true
+          
+      
+          
+          
+        
+        
