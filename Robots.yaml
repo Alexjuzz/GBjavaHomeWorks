@@ -8,28 +8,38 @@ servers:
 paths:
   /robots:
     get:
-      summary: Метод получения роботов
-      tags:
-        - robots
-      operationId: getAllRobots
-      responses:
-        "200":
-            description: Успешный ответ со списком роботов
-            content:
-              application/json:
-                schema:
-                  $ref: "#/components/schemas/robots"
-        "default":
-            description: Ошибка ответа
-            content:
-              application/json:
-                schema:
-                  $ref: "#/components/schemas/Error"
+     summary: Получить список роботов
+     description: Этот запрос возвращает список всех доступных роботов.
+     tags:
+      - robots
+     operationId: getAllRobots
+     security: 
+      -   BearerAuth: []
+     responses:
+      "200":
+        description: Успешный ответ со списком роботов
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/robots"
+      "default":
+        description: Ошибка ответа
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Error"
+    parameters:
+      - name: status
+        in: query
+        description: Фильтр по статусу роботов (например, "charging")
+        required: false
+        schema:
+          type: string
   /calendar:
     get:
       summary: Метод для получения колендаря
       tags: 
-        - calendar
+       - calendar
       operationId: getCalendar
       responses:
         "200":
@@ -45,9 +55,10 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
                 
-    put:
+    post:
       summary: Добавление записи в календарь
-      tags: 
+      description: Эта операция позволяет добавить новую запись в календарь.
+      tags:
         - calendar
       operationId: setRecord
       requestBody:
@@ -58,18 +69,17 @@ paths:
               $ref: "#/components/schemas/calendar"
       responses:
         "200":
-          description: Успешное получение календаря со всеми запланироваными задачами
+          description: Успешное добавление записи в календарь
           content:
-              application/json:
-                schema:
-                  $ref: "#/components/schemas/calendar"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/calendar"
         "default":
           description: Ошибка ответа
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
- 
           
   /calendar/{day}:
     get:
@@ -324,6 +334,11 @@ paths:
       
                
 components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
       robot:
         type: object
