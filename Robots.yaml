@@ -31,6 +31,31 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+  /loginByPassword:  
+      post:
+        summary: Вход по паролю
+        tags:
+          - Пользователь
+        operationId: входПоПаролю
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/loginByPassword"
+        responses:
+          "200":
+            description: Успешный вход
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Пользователь"
+          "default":
+            description: Ошибка входа
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Ошибка"
 
   /robots:
     get:
@@ -470,3 +495,11 @@ components:
     deleteUser:
       type: boolean
       example: true
+    loginByPassword:  
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+          minLength: 6
